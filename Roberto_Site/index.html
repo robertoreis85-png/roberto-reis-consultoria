@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roberto Reis | Consultoria Comercial para PMEs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --dark: #0A0A0A;
+    --dark-2: #111111;
+    --dark-3: #1A1A1A;
+    --dark-4: #222222;
+    --text: #F0EDE6;
+    --text-muted: #8A8680;
+    --green: #2A7A4B;
+    --green-light: #3AAD6A;
+    --border: rgba(201,168,76,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--dark);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+  }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    padding: 0.6rem 1.4rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 5% 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(42,122,75,0.06) 0%, transparent 60%);
+  }
+
+  .hero-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 720px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(201,168,76,0.1);
+    border: 0.5px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-dot {
+    width: 6px; height: 6px;
+    background: var(--green-light);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  h1 span {
+    color: var(--gold);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.9rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(37,211,102,0.25);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,0.35); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 0.5px solid var(--border);
+    color: var(--gold-light);
+    text-decoration: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(201,168,76,0.07); border-color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+    padding-top: 2.5rem;
+    border-top: 0.5px solid var(--border);
+    animation: fadeUp 0.7s 0.4s ease both;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {}
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    height: 0.5px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 0 5%;
+  }
+
+  /* DOR / PROBLEMA */
+  .dor-section {
+    padding: 6rem 5%;
+    background: var(--dark-2);
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    max-width: 680px;
+  }
+
+  .dor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .dor-card {
+    background: var(--dark-3);
+    border: 0.5px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .dor-card:hover { border-color: rgba(201,168,76,0.25); transform: translateY(-3px); }
+
+  .dor-icon {
+    width: 44px; height: 44px;
+    background: rgba(201,168,76,0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .dor-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+  }
+
+  .dor-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* SERVIÇOS */
+  .servicos-section {
+    padding: 6rem 5%;
+  }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .servico-card {
+    background: var(--dark-3);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .servico-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+
+  .servico-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .servico-card:hover::before { opacity: 1; }
+
+  .servico-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(201,168,76,0.12);
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    line-height: 1;
+  }
+
+  .servico-icon {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .servico-card h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: var(--gold-light);
+  }
+
+  .servico-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .servico-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 1.2rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    background: rgba(201,168,76,0.1);
+    color: var(--gold);
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+    font-weight: 500;
+  }
+
+  /* COMO FUNCIONA */
+  .processo-section {
+    padding: 6rem 5%;
+    background: var(--dark-2);
+  }
+
+  .processo-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    margin-top: 3.5rem;
+    position: relative;
+  }
+
+  .step {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .step::after {
+    content: '→';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 1.2rem;
+    opacity: 0.5;
+  }
+  .step:last-child::after { display: none; }
+
+  .step-num {
+    width: 52px; height: 52px;
+    background: rgba(201,168,76,0.1);
+    border: 0.5px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .step h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .step p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* SOBRE */
+  .sobre-section {
+    padding: 6rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .sobre-section { grid-template-columns: 1fr; gap: 3rem; }
+  }
+
+  .sobre-visual {
+    position: relative;
+  }
+
+  .sobre-card {
+    background: var(--dark-3);
+    border: 0.5px solid var(--border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sobre-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 150px; height: 150px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08), transparent 70%);
+  }
+
+  .sobre-initial {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+
+  .sobre-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.3rem;
+  }
+
+  .sobre-role {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  .sobre-empresas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .empresa-badge {
+    font-size: 0.72rem;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    border: 0.5px solid rgba(255,255,255,0.08);
+  }
+
+  .sobre-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .sobre-text p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .sobre-list {
+    list-style: none;
+    margin-top: 1.5rem;
+  }
+
+  .sobre-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 0.7rem;
+    line-height: 1.5;
+  }
+
+  .check {
+    color: var(--green-light);
+    font-size: 1rem;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  /* RESULTADOS */
+  .resultados-section {
+    padding: 5rem 5%;
+    background: var(--dark-2);
+    text-align: center;
+  }
+
+  .resultados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 3rem auto 0;
+  }
+
+  .resultado-item {
+    padding: 2rem;
+    background: var(--dark-3);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+  }
+
+  .resultado-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .resultado-label {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+
+  /* DEPOIMENTOS */
+  .depo-section {
+    padding: 6rem 5%;
+  }
+
+  .depo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .depo-card {
+    background: var(--dark-3);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.8rem;
+  }
+
+  .depo-stars {
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .depo-text {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .depo-autor {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .depo-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .depo-nome {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .depo-cargo {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  /* CTA FINAL */
+  .cta-section {
+    padding: 7rem 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.06), transparent 70%);
+  }
+
+  .cta-content {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-section h2 span { color: var(--gold); }
+
+  .cta-section p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-wpp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 28px rgba(37,211,102,0.3);
+  }
+  .btn-wpp:hover { transform: translateY(-3px); box-shadow: 0 8px 40px rgba(37,211,102,0.4); }
+
+  .btn-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    border: 0.5px solid var(--border);
+    color: var(--gold-light);
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .btn-email:hover { background: rgba(201,168,76,0.07); border-color: var(--gold); }
+
+  .cta-guarantee {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2.5rem 5%;
+    border-top: 0.5px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: var(--dark-2);
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--gold);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold-light); }
+
+  /* WHATSAPP FLOATING */
+  .wpp-float {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    width: 60px; height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    z-index: 99;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: bounceIn 0.6s 1s ease both;
+  }
+  .wpp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.6); }
+
+  @keyframes bounceIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .wpp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    nav .nav-logo { font-size: 1.1rem; }
+    .hero { padding: 7rem 5% 4rem; }
+    .sobre-section { padding: 4rem 5%; }
+    .step::after { display: none; }
+    .processo-steps { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Roberto Reis</div>
+  <a href="https://wa.me/5591982477439?text=Olá%20Roberto!%20Quero%20agendar%20uma%20consultoria%20gratuita." class="nav-cta" target="_blank">
+    Agendar Diagnóstico Gratuito
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="hero-dot"></span>
+      Consultoria Comercial para PMEs
+    </div>
+    <h1>
+      Seu negócio pode
+      <span>faturar muito mais.</span>
+      Você só precisa saber como.
+    </h1>
+    <p class="hero-sub">
+      Identifico os gargalos que estão travando seu crescimento, estruturo seu funil de vendas e automatizo seu atendimento para que você converta mais clientes — sem depender de sorte ou improvisos.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/5591982477439?text=Olá%20Roberto!%20Quero%20agendar%20uma%20consultoria%20gratuita%20para%20melhorar%20minhas%20vendas." class="btn-primary" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Quero Meu Diagnóstico Gratuito
+      </a>
+      <a href="mailto:robertoreis85@gmail.com" class="btn-secondary">
+        ✉ Enviar E-mail
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">+20</div>
+        <div class="stat-label">Anos de experiência</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">+15</div>
+        <div class="stat-label">Grandes empresas</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Foco em resultado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- DOR / PROBLEMA -->
+<section class="dor-section">
+  <div class="reveal">
+    <div class="section-label">Você se identifica?</div>
+    <h2 class="section-title">Os problemas que impedem o crescimento da sua empresa</h2>
+  </div>
+  <div class="dor-grid reveal">
+    <div class="dor-card">
+      <div class="dor-icon">📉</div>
+      <h3>Vendas estagnadas ou caindo</h3>
+      <p>Você trabalha muito, mas o faturamento não cresce. Não sabe exatamente onde está perdendo clientes.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">🔇</div>
+      <h3>Falta de presença digital</h3>
+      <p>Seus concorrentes aparecem no Google e nas redes sociais. Você ainda depende de indicações boca a boca.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">💬</div>
+      <h3>Atendimento lento e ineficiente</h3>
+      <p>Leads somem enquanto você não responde. WhatsApp desorganizado e sem padrão de atendimento.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">🎯</div>
+      <h3>Investindo sem retorno</h3>
+      <p>Gasta em anúncios mas não sabe o que funciona. Verba desperdiçada sem estratégia definida.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">🔄</div>
+      <h3>Sem processo de vendas</h3>
+      <p>Cada vendedor faz do seu jeito. Não há funil, não há script, não há previsibilidade.</p>
+    </div>
+    <div class="dor-card">
+      <div class="dor-icon">📊</div>
+      <h3>Sem dados para decidir</h3>
+      <p>Você toma decisões no feeling. Não sabe quais produtos vendem mais, nem qual canal traz mais clientes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos-section">
+  <div class="reveal">
+    <div class="section-label">O que eu ofereço</div>
+    <h2 class="section-title">Soluções completas para acelerar seu faturamento</h2>
+  </div>
+  <div class="servicos-grid reveal">
+    <div class="servico-card">
+      <span class="servico-num">01</span>
+      <span class="servico-icon">🔍</span>
+      <h3>Diagnóstico Comercial Completo</h3>
+      <p>Análise profunda do seu negócio: identifico onde você perde clientes, quais são os gargalos do seu funil de vendas e as principais oportunidades de crescimento no seu segmento.</p>
+      <div class="servico-tags">
+        <span class="tag">Análise de mercado</span>
+        <span class="tag">Mapeamento de funil</span>
+        <span class="tag">Benchmarking</span>
+      </div>
+    </div>
+    <div class="servico-card">
+      <span class="servico-num">02</span>
+      <span class="servico-icon">🌐</span>
+      <h3>Landing Page de Alta Conversão</h3>
+      <p>Criação de páginas de vendas profissionais e persuasivas que capturam leads qualificados 24 horas por dia, com design moderno, copywriting estratégico e integração com WhatsApp.</p>
+      <div class="servico-tags">
+        <span class="tag">Design moderno</span>
+        <span class="tag">Copywriting</span>
+        <span class="tag">CTA otimizado</span>
+      </div>
+    </div>
+    <div class="servico-card">
+      <span class="servico-num">03</span>
+      <span class="servico-icon">🤖</span>
+      <h3>Automação de Atendimento com IA</h3>
+      <p>Implantação de chatbot inteligente no WhatsApp que responde dúvidas, qualifica leads e agenda reuniões automaticamente — mesmo quando você está dormindo.</p>
+      <div class="servico-tags">
+        <span class="tag">WhatsApp Business</span>
+        <span class="tag">Chatbot IA</span>
+        <span class="tag">Qualificação auto</span>
+      </div>
+    </div>
+    <div class="servico-card">
+      <span class="servico-num">04</span>
+      <span class="servico-icon">📣</span>
+      <h3>Estratégia de Anúncios (Meta & Google)</h3>
+      <p>Criação e gestão de campanhas de tráfego pago no Meta Ads (Facebook/Instagram) e Google Ads direcionadas ao seu público-alvo, maximizando o retorno sobre investimento.</p>
+      <div class="servico-tags">
+        <span class="tag">Meta Ads</span>
+        <span class="tag">Google Ads</span>
+        <span class="tag">ROI maximizado</span>
+      </div>
+    </div>
+    <div class="servico-card">
+      <span class="servico-num">05</span>
+      <span class="servico-icon">📈</span>
+      <h3>Estruturação do Funil de Vendas</h3>
+      <p>Mapeamento e criação de todo o processo comercial: da captação à conversão. Scripts de abordagem, técnicas de negociação e indicadores para gerir com dados, não com feeling.</p>
+      <div class="servico-tags">
+        <span class="tag">Script de vendas</span>
+        <span class="tag">Pipeline</span>
+        <span class="tag">KPIs</span>
+      </div>
+    </div>
+    <div class="servico-card">
+      <span class="servico-num">06</span>
+      <span class="servico-icon">🎓</span>
+      <h3>Treinamento da Equipe Comercial</h3>
+      <p>Capacitação prática da sua equipe de vendas com técnicas atualizadas de prospecção, abordagem, negociação e fechamento. Mais de 20 anos de experiência em campo.</p>
+      <div class="servico-tags">
+        <span class="tag">Prospecção</span>
+        <span class="tag">Negociação</span>
+        <span class="tag">Fechamento</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- COMO FUNCIONA -->
+<section class="processo-section">
+  <div class="reveal" style="text-align:center;">
+    <div class="section-label">Como funciona</div>
+    <h2 class="section-title" style="margin:0 auto; text-align:center;">Do diagnóstico ao resultado em 4 passos</h2>
+  </div>
+  <div class="processo-steps reveal">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Diagnóstico Gratuito</h4>
+      <p>Reunião inicial para entender seu negócio, seus desafios e seus objetivos de crescimento.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Plano Personalizado</h4>
+      <p>Apresento um plano de ação detalhado com as melhores estratégias para o seu segmento.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Implementação</h4>
+      <p>Execução das estratégias: landing page, automações, anúncios e processos de vendas.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Acompanhamento</h4>
+      <p>Monitoramento contínuo dos resultados e ajustes para garantir crescimento consistente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre-section">
+  <div class="sobre-visual reveal">
+    <div class="sobre-card">
+      <div style="width:110px;height:110px;border-radius:50%;overflow:hidden;border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(201,168,76,0.12);margin-bottom:1.5rem;flex-shrink:0;">
+        <img src="Imgaem_perfil_roberto.png" alt="Roberto Reis" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <div class="sobre-name">Roberto Reis</div>
+      <div class="sobre-role">Consultor Comercial | +20 anos de experiência</div>
+      <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.7;">
+        Formado em Administração com ênfase em Marketing pela Unama, trabalhei nas maiores empresas do Brasil estruturando times e processos comerciais que geraram resultados reais.
+      </p>
+      <div class="sobre-empresas">
+        <span class="empresa-badge">AmBev</span>
+        <span class="empresa-badge">Heineken</span>
+        <span class="empresa-badge">Cacau Show</span>
+        <span class="empresa-badge">Vivo Empresas</span>
+        <span class="empresa-badge">HSBC</span>
+        <span class="empresa-badge">OYO</span>
+        <span class="empresa-badge">Mongeral Aegon</span>
+        <span class="empresa-badge">Alubar</span>
+      </div>
+    </div>
+  </div>
+  <div class="sobre-text reveal">
+    <div class="section-label">Quem é Roberto Reis</div>
+    <h2>Mais de 20 anos transformando operações comerciais em resultados</h2>
+    <p>
+      Comecei minha carreira na Telefônica e ao longo de duas décadas passei pelas maiores empresas do Brasil, liderando equipes, estruturando canais de vendas e implementando estratégias que geraram crescimento real e mensurável.
+    </p>
+    <p>
+      Hoje, coloco todo esse conhecimento a serviço das pequenas e médias empresas que precisam crescer, mas não têm acesso a consultorias de grande porte.
+    </p>
+    <ul class="sobre-list">
+      <li><span class="check">✓</span> Especialista em estruturação de times e processos comerciais</li>
+      <li><span class="check">✓</span> Experiência em B2B, B2C e canais de distribuição</li>
+      <li><span class="check">✓</span> Domínio em marketing digital, tráfego pago e automação</li>
+      <li><span class="check">✓</span> Atuação em Belém/PA com atendimento para todo o Brasil</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="resultados-section">
+  <div class="reveal">
+    <div class="section-label">Resultados que entrego</div>
+    <h2 class="section-title" style="margin:0 auto; text-align:center;">Números que falam por si</h2>
+  </div>
+  <div class="resultados-grid reveal">
+    <div class="resultado-item">
+      <div class="resultado-num">+40%</div>
+      <div class="resultado-label">Aumento médio em conversão de leads</div>
+    </div>
+    <div class="resultado-item">
+      <div class="resultado-num">72h</div>
+      <div class="resultado-label">Para ter sua landing page no ar</div>
+    </div>
+    <div class="resultado-item">
+      <div class="resultado-num">24/7</div>
+      <div class="resultado-label">Atendimento automatizado via WhatsApp</div>
+    </div>
+    <div class="resultado-item">
+      <div class="resultado-num">-60%</div>
+      <div class="resultado-label">Redução no custo por lead com estratégia certa</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depo-section">
+  <div class="reveal" style="text-align:center;">
+    <div class="section-label">O que dizem sobre meu trabalho</div>
+    <h2 class="section-title" style="margin:0 auto; text-align:center;">Empresários que transformaram seus negócios</h2>
+  </div>
+  <div class="depo-grid reveal">
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"O Roberto identificou em pouco tempo onde eu estava perdendo clientes. Depois de implementar o funil e a landing page, minha taxa de conversão triplicou em 60 dias."</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">MS</div>
+        <div>
+          <div class="depo-nome">Marcos Silva</div>
+          <div class="depo-cargo">Proprietário — Clínica Odontológica, Belém/PA</div>
+        </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"A automação do WhatsApp foi um divisor de águas. Paramos de perder clientes por demora no atendimento. Hoje respondemos em segundos, mesmo fora do horário comercial."</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">AC</div>
+        <div>
+          <div class="depo-nome">Ana Carolina</div>
+          <div class="depo-cargo">Diretora — Escola de Idiomas, Ananindeua/PA</div>
+        </div>
+      </div>
+    </div>
+    <div class="depo-card">
+      <div class="depo-stars">★★★★★</div>
+      <p class="depo-text">"Investia em anúncios sem retorno. Com a estratégia do Roberto, reduzimos o custo por lead em 55% e dobramos as vendas no primeiro mês. Vale cada centavo da consultoria."</p>
+      <div class="depo-autor">
+        <div class="depo-avatar">PF</div>
+        <div>
+          <div class="depo-nome">Paulo Fernandes</div>
+          <div class="depo-cargo">CEO — Imobiliária, Belém/PA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-content reveal">
+    <div class="section-label">Próximo passo</div>
+    <h2>Pronto para <span>aumentar seu faturamento</span> de forma consistente?</h2>
+    <p>Agende agora seu diagnóstico gratuito. Em 30 minutos, vou identificar as principais oportunidades de crescimento do seu negócio — sem compromisso.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/5591982477439?text=Olá%20Roberto!%20Vim%20pelo%20seu%20site%20e%20quero%20agendar%20meu%20diagnóstico%20gratuito." class="btn-wpp" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar Pelo WhatsApp
+      </a>
+      <a href="mailto:robertoreis85@gmail.com" class="btn-email">
+        ✉ robertoreis85@gmail.com
+      </a>
+    </div>
+    <div class="cta-guarantee">🔒 Diagnóstico 100% gratuito e sem compromisso · Resposta em até 2h
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Roberto Reis Consultoria</div>
+  <ul class="footer-links">
+    <li><a href="mailto:robertoreis85@gmail.com">robertoreis85@gmail.com</a></li>
+    <li><a href="https://wa.me/5591982477439" target="_blank">(91) 98247-7439</a></li>
+    <li><a href="https://www.linkedin.com/in/robertoreis-98524171" target="_blank">LinkedIn</a></li>
+  </ul>
+</footer>
+
+<!-- WHATSAPP BOTÃO FLUTUANTE -->
+<a href="https://wa.me/5591982477439?text=Olá%20Roberto!%20Vim%20pelo%20seu%20site%20e%20quero%20saber%20mais%20sobre%20a%20consultoria." class="wpp-float" target="_blank" title="Fale pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+
+</body>
+</html>
